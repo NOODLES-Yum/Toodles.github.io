@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forgiveness Letter</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffd6e7,#ffeef5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  text-align:center;
+  max-width:400px;
+}
+
+.confession img{
+  width:320px;
+  max-width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.confession p{
+  font-size:20px;
+  font-weight:bold;
+  color:#333;
+}
+
+.buttons p{
+  margin-top:15px;
+  font-size:18px;
+}
+
+button{
+  padding:10px 20px;
+  margin:10px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.yes{
+  background:#ff4d88;
+  color:white;
+}
+
+.no{
+  background:#888;
+  color:white;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+#responseText{
+  margin-top:15px;
+  font-weight:bold;
+  color:#ff4d88;
+}
+
+/* jumpscare screen */
+#jumpscare{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+#jumpscare img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="confession">
+  <img src="photo.jpg" alt="photo">
+
+  <p>
+    diko spy  
+    diman ko spy  
+    P
+  </p>
+</div>
+
+<div class="buttons">
+  <p>Pasaylo?</p>
+
+  <button class="yes" onclick="sendAnswer('yes')">Yes</button>
+  <button class="no" onclick="sendAnswer('no')">No</button>
+
+  <p id="responseText"></p>
+</div>
+
+</div>
+
+<!-- image screen -->
+<div id="jumpscare">
+  <img id="resultImage" src="">
+</div>
+
+<script>
+function sendAnswer(answer){
+
+  let screen = document.getElementById("jumpscare");
+  let img = document.getElementById("resultImage");
+
+  if(answer === "yes"){
+
+    img.src = "yes.jpg"; // second image (smug face)
+    screen.style.display = "flex";
+    document.getElementById("responseText").innerText = "Salamat kayoerns";
+
+  }else{
+
+    img.src = "no.jpg"; // first image (bald guy)
+    screen.style.display = "flex";
+
+    setTimeout(()=>{
+      screen.style.display = "none";
+      document.getElementById("responseText").innerText = "click ah";
+    },1500);
+  }
+}
+</script>
+
+</body>
+</html>
